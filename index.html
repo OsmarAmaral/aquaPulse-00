@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AquaPulse - Irrigação Automática Inteligente</title>
+
+    <!-- Fonte do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilos básicos e reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            background-color: #121212;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: transparent;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        header.scrolled {
+            background-color: #1db954;
+        }
+
+        header h1 {
+            color: #fff;
+            font-size: 3em;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 400;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #1db954;
+        }
+
+        /* Seção Hero com animação de fade-in */
+        .hero {
+            background: linear-gradient(135deg, #1db954, #191414);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hero h2 {
+            font-size: 4.5em;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.7em;
+            color: #fff;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .hero .cta {
+            background-color: #1db954;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.5em;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 40px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .hero .cta:hover {
+            background-color: #1aa34a;
+            transform: scale(1.05);
+        }
+
+        /* Seção de recursos com animações */
+        .features {
+            background-color: #191414;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .features h2 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: #fff;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        .features .feature-item {
+            display: inline-block;
+            width: 30%;
+            margin: 20px;
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #282828, #191414);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1s ease-in-out forwards;
+        }
+
+        .features img {
+            max-width: 80px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .features h3 {
+            color: #1db954;
+            font-weight: 700;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .features p {
+            color: #b3b3b3;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .features .feature-item:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Rodapé simples e moderno */
+        footer {
+            background-color: #191414;
+            color: #b3b3b3;
+            text-align: center;
+            padding: 50px 20px;
+            font-size: 0.9em;
+        }
+
+        footer a {
+            color: #1db954;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #1aa34a;
+            text-decoration: underline;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .features .feature-item {
+                width: 100%;
+                margin: 20px 0;
+            }
+
+            .hero h2 {
+                font-size: 3em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .features h2 {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>AquaPulse</h1>
+        <nav>
+            <a href="#features">Benefícios</a>
+            <a href="#cta">Peça o seu</a>
+            <a href="#contact">Contato</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Irrigação Inteligente</h2>
+        <p>O futuro da irrigação está aqui. Controle preciso, sem esforço, com AquaPulse.</p>
+        <a href="#" class="cta">Descubra mais</a>
+    </section>
+
+    <section class="features" id="features">
+        <h2>Tecnologia AquaPulse</h2>
+        <div class="feature-item">
+            <img src="https://img.icons8.com/ios-filled/100/ffffff/automation.png" alt="Automatização Inteligente">
+            <h3>Automatização Inteligente</h3>
+            <p>Monitora o solo e ajusta a irrigação conforme a necessidade, economizando recursos.</p>
+        </div>
+        <div class="feature-item">
+            <img src="https://img.icons8.com/ios-filled/100/ffffff/water.png" alt="Eficiência no Uso de Água">
+            <h3>Eficiência no Uso de Água</h3>
+            <p>Reduza o desperdício de água com um sistema preciso e eficiente.</p>
+        </div>
+        <div class="feature-item">
+            <img src="https://img.icons8.com/ios-filled/100/ffffff/nature.png" alt="Saúde das Plantas">
+            <h3>Saúde das Plantas</h3>
+            <p>Garantia de plantas mais saudáveis com irrigação adequada e precisa.</p>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>Entre em contato: <a href="mailto:contato@aquapulse.com">contato@aquapulse.com</a></p>
+        <p>&copy; 2024 AquaPulse. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- JavaScript para Efeitos -->
+    <script>
+        // Mudança de cor no menu ao rolar
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Efeito de rolar e aparecer as seções
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                } else {
+                    entry.target.style.opacity = '0';
+                }
+            });
+        });
+
+        document.querySelectorAll('.feature-item').forEach((item) => {
+            observer.observe(item);
+        });
+
+// Efeito de suavidade nos links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+    </script>
+</body>
+</html>
